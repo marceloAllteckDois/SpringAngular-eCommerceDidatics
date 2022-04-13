@@ -1,9 +1,9 @@
 export class Product {
     sku: string="";
     name:string="";
-    descripition:string="";
+    description:string="";
     unitPrice:number=0;
-    imageUrl:string="";
+    urlImage:string="";
     active:boolean=false;
     unitsInStock:number=0;
     dateCreation: Date=new Date();

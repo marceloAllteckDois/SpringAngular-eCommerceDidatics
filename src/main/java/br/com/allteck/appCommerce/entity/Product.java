@@ -99,6 +99,8 @@ public class Product implements Serializable{
 	public void setCategoryName(ProductCategory categoryName) {
 		this.categoryName = categoryName;
 	}
+	
+
 	public Product(Long id, String sku, String name, String description, Double unitPrice, String urlImage,
 			boolean active, int unitsInStock, Calendar dateTimeCreation, Calendar lastTimeUpdated,
 			ProductCategory categoryName) {

@@ -6,7 +6,10 @@ import { ProductListComponent } from './components/product-list/product-list.com
 import { HttpClientModule } from '@angular/common/http';
 import { ProductService } from './services/product.service';
 import { RouterModule, Routes } from '@angular/router';
+import { SearchComponent} from './components/search/search.component';
 import { ProductCategoryMenuComponent } from './components/product-category-menu/product-category-menu.component';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
+
 
 const routes:Routes = [
   {
@@ -24,6 +27,9 @@ const routes:Routes = [
   {
     path: "**", redirectTo: "products/", pathMatch:"full"
   },
+  {
+    path: "search/:keyword", component: ProductListComponent
+  },
 
 ];
 
@@ -31,7 +37,10 @@ const routes:Routes = [
   declarations: [
     AppComponent,
     ProductListComponent,
-    ProductCategoryMenuComponent
+    ProductCategoryMenuComponent,
+    SearchComponent,
+    ProductDetailsComponent,
+
   ],
   imports: [
     RouterModule.forRoot(routes),

@@ -13,6 +13,7 @@ export class ProductListComponent implements OnInit {
   products: Product[]=[];
   productCategoryId:number=0;
   charId?:string="";
+  searchFlag:boolean=false;
   constructor(private productService: ProductService, private router:ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -21,19 +22,39 @@ export class ProductListComponent implements OnInit {
   }
 
   listProduct(){
-
-    const hasCategoryId:boolean = this.router.snapshot.paramMap.has("id");
-    if(hasCategoryId){
-      if(this.router.snapshot.paramMap.get("id")!=null) this.charId=this.router.snapshot.paramMap.get("id")?.toString();
-      this.productCategoryId = parseInt(this.charId!);
+    this.searchFlag=this.router.snapshot.paramMap.has('keyword');
+    if(this.searchFlag){
+      this.handlerSearch();
     }
-    else this.productCategoryId=6;
+    else
+      this.handlerList();
+  }
 
-    this.productService.getProductList(this.productCategoryId).subscribe(
-      data=>{
+  private handlerSearch() {
+    let keyWord=this.router.snapshot.paramMap.get('keyword');
+    this.productService.searchProductList(keyWord!).subscribe(
+      data => {
         console.log(JSON.stringify(data));
         this.products = data;
       }
-    )
+    );
+  }
+
+  private handlerList() {
+    const hasCategoryId: boolean = this.router.snapshot.paramMap.has("id");
+    if (hasCategoryId) {
+      if (this.router.snapshot.paramMap.get("id") != null)
+        this.charId = this.router.snapshot.paramMap.get("id")?.toString();
+      this.productCategoryId = parseInt(this.charId!);
+    }
+    else
+      this.productCategoryId = 6;
+
+    this.productService.getProductList(this.productCategoryId).subscribe(
+      data => {
+        console.log(JSON.stringify(data));
+        this.products = data;
+      }
+    );
   }
 }

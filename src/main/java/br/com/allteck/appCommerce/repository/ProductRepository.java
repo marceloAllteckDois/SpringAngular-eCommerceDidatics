@@ -15,4 +15,5 @@ import br.com.allteck.appCommerce.entity.Product;
 @RepositoryRestResource(collectionResourceRel = "product", path = "product")
 public interface ProductRepository extends JpaRepository<Product, Long>{
 	Page<Product> findByCategoryNameId(@RequestParam("id")Long id, Pageable pageable); 
+	Page<Product> findByNameContaining(@RequestParam("name")String name, Pageable pageable);
 }

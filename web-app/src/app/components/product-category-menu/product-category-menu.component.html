@@ -10,7 +10,9 @@
     <nav class="navbar-sidebar">
       <ul class="list-unstyled navbar-list" >
         <li *ngFor="let productCategory of productCategories">
-          <a routerLink="/category/{{productCategory.id.toString()}}" routerLinkActive="active-link">{{productCategory.categoryName.toLowerCase()}}</a>
+          <a routerLink="/category/{{productCategory.id.toString()}}" routerLinkActive="active-link">
+            {{productCategory.categoryName.toLowerCase()}}
+          </a>
         </li>
       </ul>
     </nav>

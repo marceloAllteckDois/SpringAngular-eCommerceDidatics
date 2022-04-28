@@ -12,6 +12,7 @@ import { ProductDetailsComponent } from './components/product-details/product-de
 
 
 const routes:Routes = [
+
   {
     path: "category/:id", component: ProductListComponent
   },
@@ -19,17 +20,22 @@ const routes:Routes = [
     path: "category", component: ProductListComponent
   },
   {
-    path: "products", component: ProductListComponent
+    path: "product", component: ProductListComponent
   },
   {
-    path: "", redirectTo: "products/", pathMatch:"full"
+    path: "product/:product-id", component: ProductDetailsComponent
   },
   {
-    path: "**", redirectTo: "products/", pathMatch:"full"
+    path: "", redirectTo: "product/", pathMatch:"full"
+  },
+  {
+    path: "**", redirectTo: "product/", pathMatch:"full"
   },
   {
     path: "search/:keyword", component: ProductListComponent
   },
+
+
 
 ];
 
@@ -40,7 +46,7 @@ const routes:Routes = [
     ProductCategoryMenuComponent,
     SearchComponent,
     ProductDetailsComponent,
-
+    ProductDetailsComponent,
   ],
   imports: [
     RouterModule.forRoot(routes),

@@ -4,8 +4,12 @@
       <div class="row">
         <div *ngFor="let productIten of products" class="col-md-3">
           <div class="product-box">
-            <img alt="" src={{productIten.urlImage}} height="50px" />
-            <h1>{{productIten.name}}</h1>
+            <a routerLink="/product/{{productIten.id.toString()}}" routerLinkActive="active-link">
+              <img alt="" src={{productIten.urlImage}} height="50px" />
+            </a>
+            <a routerLink="/product/{{productIten.id.toString()}}" routerLinkActive="active-link">
+              <h1>{{productIten.name}}</h1>
+            </a>
             <div class="price">{{productIten.unitPrice | currency:"BRL"}}</div>
             <div class="product-box">Quantidade disponivel<br>{{productIten.unitsInStock}} unidades</div>
             <a href="#" class="primary-btn">pro carrinho</a>

@@ -1,4 +1,6 @@
+import { ProductCategory } from './ProductCategory';
 export class Product {
+    id:number=0;
     sku: string="";
     name:string="";
     description:string="";
@@ -8,6 +10,7 @@ export class Product {
     unitsInStock:number=0;
     dateCreation: Date=new Date();
     lastUpdated:Date=new Date();
+    productCategory:ProductCategory=new ProductCategory()
     constructor(){
 
     }

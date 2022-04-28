@@ -38,6 +38,7 @@ export class ProductListComponent implements OnInit {
         this.products = data;
       }
     );
+
   }
 
   private handlerList() {
@@ -56,5 +57,6 @@ export class ProductListComponent implements OnInit {
         this.products = data;
       }
     );
+
   }
 }
